@@ -21,4 +21,6 @@ joblib
 ensure 
 pyyaml
 Pillow
+setuptools==68.2.2
+dotenv
 -e .
