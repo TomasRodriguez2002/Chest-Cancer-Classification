@@ -20,4 +20,5 @@ python-box
 joblib 
 ensure 
 pyyaml
+Pillow
 -e .
