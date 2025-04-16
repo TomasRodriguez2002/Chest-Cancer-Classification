@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Breast Cancer Classification</title>
+    <link rel="shortcut icon" href="data:image/png;base64,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">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        :root {
+            --primary-color: #1b2d6b;
+            --secondary-color: #4a6fc7;
+            --background-color: #f8f9fe;
+            --highlight-color: #e9ecef;
+        }
+
+        body {
+            background-color: var(--background-color);
+            min-height: 100vh;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 15px;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .image-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 300px;
+            border: 2px dashed var(--primary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background: var(--highlight-color);
+        }
+
+        .image-preview video,
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .btn-custom {
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            height: 100%;
+        }
+
+        .result-output {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+            border-width: 0.25em;
+        }
+
+        .response-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .instruction-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .image-preview {
+                height: 250px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="page-title text-center">Breast Cancer Classification</h1>
+        
+        <div class="row">
+            <!-- Image Input Section -->
+            <div class="col-lg-6 mb-4">
+                <div class="image-section">
+                    <div class="image-preview" id="imagePreview">
+                        <video autoplay id="video" poster="https://via.placeholder.com/300x300?text=Upload+Image"></video>
+                        <img src="" id="photo" alt="Preview">
+                    </div>
+                    
+                    <div class="instruction-text">
+                        Supported formats: JPEG, PNG
+                    </div>
+
+                    <div class="d-flex btn-group">
+                        <input type="file" id="fileInput" class="d-none" accept="image/*">
+                        <button type="button" class="btn btn-custom mr-2" id="uploadBtn">
+                            <i class="fas fa-upload mr-2"></i>Upload Image
+                        </button>
+                        <button type="button" class="btn btn-custom" id="predictBtn" disabled>
+                            <i class="fas fa-brain mr-2"></i>Predict
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="col-lg-6 mb-4">
+                <div class="results-section">
+                    <h5 class="mb-3 font-weight-bold text-primary">Prediction Results</h5>
+                    <div class="result-output" id="jsonResults"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="mt-3 font-weight-bold">Analyzing Image...</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let baseData = "";
+        const API_ENDPOINT = '../predict';
+
+        $(document).ready(function() {
+            // Handle image upload
+            $('#uploadBtn').click(function() {
+                $('#fileInput').click();
+            });
+
+            // Handle file selection
+            $('#fileInput').change(function(e) {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#photo').attr('src', e.target.result).show();
+                        $('#video').hide();
+                        $('#predictBtn').prop('disabled', false);
+
+                        // Convert image to base64
+                        const img = new Image();
+                        img.crossOrigin = 'Anonymous';
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            ctx.drawImage(img, 0, 0);
+                            baseData = canvas.toDataURL('image/jpeg', 1.0).split(',')[1];
+                        };
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Handle prediction
+            $('#predictBtn').click(async function() {
+                if (!baseData) {
+                    showError('Please upload an image first');
+                    return;
+                }
+
+                try {
+                    $('.loading-overlay').show();
+                    const response = await $.ajax({
+                        url: API_ENDPOINT,
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({ image: baseData })
+                    });
+
+                    displayResults(response);
+                } catch (error) {
+                    showError('Error processing request. Please try again.');
+                    console.error('Prediction error:', error);
+                } finally {
+                    $('.loading-overlay').hide();
+                }
+            });
+        });
+
+        function displayResults(data) {
+            const formattedData = JSON.stringify(data, null, 2)
+                .replace(/\n/g, '<br>')
+                .replace(/ /g, '&nbsp;');
+            
+            $('#jsonResults').html(`<pre class="mb-0">${formattedData}</pre>`);
+        }
+
+        function showError(message) {
+            const alert = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
+            $('.main-container').prepend(alert);
+        }
+    </script>
+</body>
+</html>

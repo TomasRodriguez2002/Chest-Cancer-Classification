@@ -169,6 +169,8 @@ cython_debug/
 
 artifacts/*
 
+inputimage.jpg
+
 # Ruff stuff:
 .ruff_cache/
 
