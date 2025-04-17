@@ -18,10 +18,6 @@ class Training:
             self.config.updated_base_model_path
         )
 
-        # self.model = tf.keras.models.load_model(
-        #     "C:/Pruebas/base_model_updated.h5"
-        # )
-
     def train_valid_generator(self):
 
         datagenerator_kwargs = dict(

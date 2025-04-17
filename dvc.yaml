@@ -7,42 +7,36 @@ stages:
     outs:
       - artifacts/data_ingestion/Chest-CT-Scan-data
 
-
-  prepare_base_model:
-    cmd: python src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
-    deps:
-      - src/cnnClassifier/pipeline/stage_02_prepare_base_model.py
-      - config/config.yaml
-    params:
-      - IMAGE_SIZE
-      - INCLUDE_TOP
-      - CLASSES
-      - WEIGHTS
-      - LEARNING_RATE
-    outs:
-      - artifacts/prepare_base_model
-
-
   training:
-    cmd: python src/cnnClassifier/pipeline/stage_03_model_trainer.py
+    cmd: python src/cnnClassifier/pipeline/stage_02_model_trainer.py
     deps:
-      - src/cnnClassifier/pipeline/stage_03_model_trainer.py
+      - src/cnnClassifier/pipeline/stage_02_model_trainer.py
       - config/config.yaml
       - artifacts/data_ingestion/Chest-CT-Scan-data
-      - artifacts/prepare_base_model
     params:
       - IMAGE_SIZE
       - EPOCHS
       - BATCH_SIZE
       - AUGMENTATION
+      - HYPERPARAMETERS.learning_rate.min
+      - HYPERPARAMETERS.learning_rate.max
+      - HYPERPARAMETERS.learning_rate.sampling
+      - HYPERPARAMETERS.freeze_till.min
+      - HYPERPARAMETERS.freeze_till.max
+      - HYPERPARAMETERS.freeze_till.step
+      - HYPERPARAMETERS.dense_units.min
+      - HYPERPARAMETERS.dense_units.max
+      - HYPERPARAMETERS.dense_units.step
+      - TUNER.max_trials
+      - TUNER.executions_per_trial      
     outs:
       - artifacts/training/model.h5
 
 
   evaluation:
-    cmd: python src/cnnClassifier/pipeline/stage_04_model_evaluation.py
+    cmd: python src/cnnClassifier/pipeline/stage_03_model_evaluation.py
     deps:
-      - src/cnnClassifier/pipeline/stage_04_model_evaluation.py
+      - src/cnnClassifier/pipeline/stage_03_model_evaluation.py
       - config/config.yaml
       - artifacts/data_ingestion/Chest-CT-Scan-data
       - artifacts/training/model.h5

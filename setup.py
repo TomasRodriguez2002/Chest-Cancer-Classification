@@ -1,4 +1,12 @@
 import setuptools
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+repo_name = os.getenv("REPO_NAME")
+author_user_name = os.getenv("AUTHOR_USER_NAME")
+src_repo = os.getenv("SRC_REPO")
+author_email = os.getenv("AUTHOR_EMAIL")
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
@@ -6,23 +14,18 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 __version__ = "0.0.0"
 
-REPO_NAME = "Chest-Cancer-Classification-Project"
-AUTHOR_USER_NAME = "TomasRodriguez2002"
-SRC_REPO = "cnnClassifier"
-AUTHOR_EMAIL = "tomasrodriguez02002@gmail.com"
-
 
 setuptools.setup(
-    name=SRC_REPO,
+    name=src_repo,
     version=__version__,
-    author=AUTHOR_USER_NAME,
-    author_email=AUTHOR_EMAIL,
+    author=author_user_name,
+    author_email=author_email,
     description="A small python package for CNN app",
     long_description=long_description,
     long_description_content="text/markdown",
-    url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
+    url=f"https://github.com/{author_user_name}/{repo_name}",
     project_urls={
-        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
+        "Bug Tracker": f"https://github.com/{author_user_name}/{repo_name}/issues",
     },
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src")

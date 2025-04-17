@@ -6,3 +6,23 @@ EPOCHS: 20
 CLASSES: 2
 WEIGHTS: imagenet
 LEARNING_RATE: 0.01
+
+# Hiperparámetros para tuning
+HYPERPARAMETERS:
+  learning_rate:
+    min: 1e-4
+    max: 1e-2
+    sampling: log
+  freeze_till:
+    min: 0
+    max: 30    # ajusta al largo de tu modelo
+    step: 10
+  dense_units:
+    min: 64
+    max: 256
+    step: 64
+
+# Parámetros del tuner
+TUNER:
+  max_trials: 10
+  executions_per_trial: 1
